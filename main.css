@@ -1,0 +1,76 @@
+/* Auhtor :
+creation date:
+*/
+
+header
+{
+		background-color : black;
+		text-align : center;
+		font-size:50px;
+		
+}
+
+footer
+{
+		background-color : black;
+		text-align : center;
+		padding : 1px;
+		padding-bottom : 1px;
+		
+		
+}
+strong
+{
+	font-size : 40px;
+}
+
+
+
+
+.flex-container {
+  display: flex;
+justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 60px;
+  padding: 1px;
+  font-size: 25px;
+
+}
+
+table{
+   	text-align : center;
+        margin: 0px;
+       padding: 0px;
+
+}
+
+.button{
+      background-color: red;
+      color : white;
+      margin: 15px;
+       padding: 10px;
+}
+
+.tr{
+   background-color:#000000 
+
+}
+
+p{
+		text-align : center;
+      font-size: 25px;
+}
+
+a{
+		text-align : center;
+}
+
+
+
+inputp{
+		text-align : center;
+      font-size: 25px;
+}
