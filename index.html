@@ -1,12 +1,10 @@
 <!doctype html>
-
 <html>
 	<!-- Head of the html -->
 	<head>
 		
 		<title> Home Page </title>
 		 <link rel="stylesheet" href="main.css">
-		  <script src="javascript.js"></script> 
 
 	</head>
 	
@@ -16,8 +14,7 @@
 	<h1 style="color:white;">Playlist</h1>
 	</header>
 	<main>
-	<div id="errorDiv"></div><br />
-	<form id = "songform" method="POST" onsubmit="return validateInput()" action="actions.php">
+	<form action="">
 		<label for= "title">title:</label>
 			<input type= "text" id = "title" name = "title"><br>
 		<label for= "artist">artist:</label>
@@ -26,9 +23,9 @@
 			<input type= "text" id = "album" name = "album"><br>
 		<label for= "category">category:</label>
 			<input type= "text" id = "category" name = "category"><br>
-		<input name="submit" type="submit" value="Submit">
 	</form>
-	<div id='successDiv'></div><br />
+	<button onclick="playAudio()" type="button">Now Playing</button>
+	
 		</main>
 		<footer> 
 				<p style="color:white;">CNMT 310 @ copyright. 2022</p>
