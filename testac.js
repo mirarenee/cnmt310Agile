@@ -15,10 +15,11 @@ $(document).ready(function() {
 					if (data.result == "Error") {
 						return;
 					}
+				
 					console.log(data); //REMOVE THIS FOR FINAL PRODUCT
 					response ($.map(data, function (item) {
 					let title = item.title + " - " + item.artist + " - " + item.album;
-					let value = item.title
+					let value = item.title;
 					return { label: title, data: item }
 				}));
 				}
@@ -26,7 +27,7 @@ $(document).ready(function() {
 		},
 		minLength: 2,
 		select: function(event,ui) {
-		console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
-		}
+			console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
+		} 
     });
 } );
