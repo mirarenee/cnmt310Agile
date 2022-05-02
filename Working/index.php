@@ -10,6 +10,7 @@ $page->addHeadElement('<script src="https://ajax.googleapis.com/ajax/libs/jquery
 $page->addHeadElement('<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>');
 $page->addHeadElement("<script src='javascript.js'></script>");
 $page->addHeadElement("<script src='testac.js?" .time() . "'></script>");
+$page->addHeadElement("<link href='style.css' rel='stylesheet'>");
 $page->finalizeTopSection();
 
 $page->finalizeBottomSection();
@@ -33,32 +34,17 @@ print "<h2>Playlist</h2>\n";
 print "</header>\n";
 print "</div>\n";
 
-print "<h3 style='text-align: center;'>";
-print "Now playing: " . $result[sizeof($result) - 1]->title . " by " . $result[sizeof($result) - 1]->artist;
+print "<h3>";
+if ($result[0] == "Error"){
+	print "No song playing";
+}
+else{
+	print "Now playing: " . $result[sizeof($result) - 1]->title . " by " . $result[sizeof($result) - 1]->artist;
+}
 print "</h3>";
 print "<br /><br />\n";
 
-print "<div class='mx-auto' style='width: 500px;'>\n";
-print "<form action='#' method='POST'>\n";
-print "<label for='searchTitle' class='form-label'>Song List</label>\n";
-print "<input class='form-control' id='form-field' placeholder='Type to search...'>\n";
-print "</form>\n";
-print "</div>\n";
-
-print "<br /><br /><br />\n";
-
-
-/** replace this section with data pulled from the auto complete
-$action = "playlist_get";
-$data = array("apikey" => "bcljigpion",	//REPLACE WITH APIKEY WHEN CONST IS WORKING
-              "apiuser" => "api60", //APIUSER,
-              "action" => $action,
-              );
-$client->setPostFields($data);
-
-$result = json_decode($client->send());
-
-**/
+//Playlist add form
 print "<div class='mx-auto' style='width: 500px;'>\n";
 print "<form method=\"POST\" action=\"playlistAdd.php\" onsubmit=\"return validate()\">";
 print "<label for=\"title\" class=\"required\">Title:</label>";
@@ -80,22 +66,19 @@ $data = array("apikey" => APIKEY,
 $client->setPostFields($data);
 
 $result = json_decode($client->send());
-//print "<div class='mx-auto' style=\"text-align: center, margin-right: auto, margin-left: auto;\">\n";
-print "<table style=\"margin-left: auto; margin-right: auto; text-align: center; border: 1px solid;\">";
+print "<table>";
 foreach ($result as $key => $row) {
 	if ($row == "Error")
 	{
 		print "No songs in the playlist";
 		break;
 	}
-	print "<tr style=\"height: 10px; border: 1px solid;\">";
-	print "<td style=\"width: 200px; border: 1px solid;\">" . $row->title . "</td>";
-	print "<td style=\"width: 200px; border: 1px solid;\">" . $row->artist . "</td>";
-//	print "<td>" . $row->album . "</td>";
-//	print "<td>" . $row->category . "</td>";
+	print "<tr>";
+	print "<td>" . $row->title . "</td>";
+	print "<td>" . $row->artist . "</td>";
 	print "</tr>";
 }
 print "</table>";
-//print "</div>\n";
+
 
 print "</div>\n";
