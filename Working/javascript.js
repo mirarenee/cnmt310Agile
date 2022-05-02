@@ -1,3 +1,4 @@
+/*
 window.addEventListener("load",function() {
 	const form = document.getElementById("songform");
 	
@@ -16,26 +17,17 @@ window.addEventListener("load",function() {
 			return true;
 		}
 	});
-	
-	function validate() {
-		titleSelection = false;
-		const email = document.getElementById("title");
-		if (email.value.length > 0) {
-			titleSelection = true;
+	*/
+	function validate() {	
+		var title = document.getElementById("title");
+		if (title.value == ""){
+			alert("Please enter a title");
+			return false;
 		}
-
-		artistSelection = false;
-		const year = document.getElementById("artist");
-		if (year.value.length > 0) {
-			artistSelection = true;
-		}
-		
-		if (titleSelection === false || artistSelection === false) {
-			console.log("Something is not selected");
-			return true;
-		} else {
-			console.log("Form is valid");
+		var artist = document.getElementById("artist");
+		if (artist.value == "") {
+			alert("Please enter an artist");
 			return false;
 		}
 	};
-});
+//});
