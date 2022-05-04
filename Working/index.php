@@ -17,20 +17,13 @@ $page->finalizeBottomSection();
 
 print $page->getTopSection();
 
-$client->setMethod("GET");
-$action = "playlist_get";
-$data = array("apikey" => APIKEY,
-              "apiuser" => APIUSER,
-              "action" => $action,
-              );
-$client->setPostFields($data);
-$result = json_decode($client->send());
+$result = playlistGet($client);
 
 print "<br />\n";
 print "<div class='position-relative'>\n";
 print "<div class='mx-auto' style='width: 200px;'>\n";
 print "<header>\n";
-print "<h2>Playlist</h2>\n";
+print "<h2>Playlist for " . date("m/d/y") . "</h2>\n";
 print "</header>\n";
 print "</div>\n";
 
@@ -65,15 +58,8 @@ print "</form>\n";
 print "</div><br \>\n";
 
 //Displays the playlist for today
-$client->setMethod("GET");
-$action = "playlist_get";
-$data = array("apikey" => APIKEY,
-              "apiuser" => APIUSER,
-              "action" => $action,
-              );
-$client->setPostFields($data);
+$result = playlistGet($client);
 
-$result = json_decode($client->send());
 print "<table>";
 foreach ($result as $key => $row) {
 	if ($row == "Error")
@@ -84,9 +70,21 @@ foreach ($result as $key => $row) {
 	print "<tr>";
 	print "<td>" . $row->title . "</td>";
 	print "<td>" . $row->artist . "</td>";
+	print "<td>" . $row->playouttime . "</td>";
 	print "</tr>";
 }
 print "</table>";
-
-
 print "</div>\n";
+
+//takes client, executes GET, returns values
+function playlistGet($client) {
+	$client->setMethod("GET");
+	$action = "playlist_get";
+	$data = array("apikey" => APIKEY,
+              "apiuser" => APIUSER,
+              "action" => $action,
+              );
+	$client->setPostFields($data);
+
+	return json_decode($client->send());
+}
