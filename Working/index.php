@@ -34,12 +34,20 @@ print "<h2>Playlist</h2>\n";
 print "</header>\n";
 print "</div>\n";
 
+
+//Now Playing
 print "<h3>";
-if ($result[0] == "Error"){
-	print "No song playing";
-}
-else{
-	print "Now playing: " . $result[sizeof($result) - 1]->title . " by " . $result[sizeof($result) - 1]->artist;
+foreach ($result as $key => $row) {
+	if ($row == "Error")
+	{
+		print "No songs in the playlist";
+		break;
+	}
+	else
+	{
+		print "Now playing: " . $result[sizeof($result) - 1]->title . " by " . $result[sizeof($result) - 1]->artist;
+		break;
+	}
 }
 print "</h3>";
 print "<br /><br />\n";
@@ -70,7 +78,7 @@ print "<table>";
 foreach ($result as $key => $row) {
 	if ($row == "Error")
 	{
-		print "No songs in the playlist";
+		print "<h3>No songs in the playlist</h3>";
 		break;
 	}
 	print "<tr>";
