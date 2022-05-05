@@ -20,7 +20,7 @@ $(document).ready(function() {
 					response ($.map(data, function (item) {
 					let title = item.title;
 					let value = item.title;
-					return { label: title, data: item }
+					return { label: title, data: item.title }
 				}));
 				}
 			});
