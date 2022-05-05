@@ -48,7 +48,7 @@ $(document).ready(function() {
 					}
 				
 //					console.log(data); //REMOVE THIS FOR FINAL PRODUCT
-					response ($.map(data, function (item.artist) {
+					response ($.map(data, function (item) {
 					let artist = item.artist;
 					let value = item.artist;
 					return { label: artist, data: item.artist }
