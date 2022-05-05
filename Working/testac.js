@@ -27,7 +27,7 @@ $(document).ready(function() {
 		},
 		minLength: 2,
 		select: function(event,ui) {
-//			console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
+			console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
 		} 
     });
 	$( "#artist" ).autocomplete({
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		},
 		minLength: 2,
 		select: function(event,ui) {
-//			console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
+			console.log(ui); //REMOVE THIS FOR FINAL PRODUCT
 		} 
     });
 } );
