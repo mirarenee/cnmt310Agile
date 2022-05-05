@@ -48,10 +48,10 @@ $(document).ready(function() {
 					}
 				
 //					console.log(data); //REMOVE THIS FOR FINAL PRODUCT
-					response ($.map(data, function (item) {
+					response ($.map(data, function (item.artist) {
 					let artist = item.artist;
 					let value = item.artist;
-					return { label: artist, data: item }
+					return { label: artist, data: item.artist }
 				}));
 				}
 			});
