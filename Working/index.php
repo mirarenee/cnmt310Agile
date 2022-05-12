@@ -48,10 +48,8 @@ print "<br /><br />\n";
 //Playlist add form
 print "<div class='mx-auto' style='width: 500px;'>\n";
 print "<form method=\"POST\" action=\"playlistAdd.php\" onsubmit=\"return validate()\">";
-print "<label for=\"title\" class=\"required\">Title:</label>";
-print "<input type=\"text\" id=\"title\" name=\"title\"><br />\n";
-print "<label for=\"artist\" class=\"required\">Artist:</label>";
-print "<input type=\"text\" id=\"artist\" name=\"artist\"><br />\n";
+print "<label for= \"form-field\" class=\"required\">Search for a Song:</label>";
+print "<input type=\"text\" name=\"form-field\" id=\"form-field\"><br />\n";
 print "<input type=\"submit\" name=\"submit\" value=\"Submit\">\n";
 print "<input type=\"reset\" name=\"reset\" value=\"Reset\">\n";
 print "</form>\n";
@@ -70,6 +68,8 @@ foreach ($result as $key => $row) {
 	print "<tr>";
 	print "<td>" . $row->title . "</td>";
 	print "<td>" . $row->artist . "</td>";
+	print "<td>" . $row->album . "</td>";
+	print "<td>" . $row->category . "</td>";
 	print "<td>" . $row->playouttime . "</td>";
 	print "</tr>";
 }

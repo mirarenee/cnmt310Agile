@@ -9,4 +9,7 @@ function validate() {
 		alert("Please enter an artist");
 		return false;
 	}
+	var albmum = document.getElementById("album");
+	var artist = document.getElementById("category");
+	
 };
