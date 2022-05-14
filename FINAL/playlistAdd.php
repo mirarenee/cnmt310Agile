@@ -2,7 +2,9 @@
 print "<link href='style.css' rel='stylesheet'>";
 if (isset($_POST['title']) && isset($_POST['artist']))
 	{
-		if ($_POST['title'] == "" || $_POST['artist'] == "")
+		$title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
+		$artist = filter_var($_POST['artist'], FILTER_SANITIZE_STRING);
+		if ($title == "" || $artist == "")
 		{
 			$error = "Please enter a valid title and artist";
 		}
@@ -17,8 +19,8 @@ if (isset($_POST['title']) && isset($_POST['artist']))
 			$client = new WebServiceClient("http://cnmt310.braingia.org/wwsp/playlist/");
 			$data = array("apikey" => APIKEY,
               "apiuser" => APIUSER,
-              "title" => $_POST['title'],
-              "artist" => $_POST['artist'],
+              "title" => $title,
+              "artist" => $artist,
               "action" => "playlist_add",
 			);
 			$client->setPostFields($data);
