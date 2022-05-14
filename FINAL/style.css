@@ -1,0 +1,30 @@
+h3 {
+	text-align: center;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 1px solid;
+	color: white;
+}
+tr, td {
+	color: white;
+	border: 1px solid;
+	width: 200px;
+	height: 10px;
+}
+input {
+	margin-bottom: 10px;
+}
+a {
+	text-align: center;
+}
+body	{
+	background: linear-gradient(white, blue);
+	background-repeat: no-repeat;
+	height: 100%;
+}
+html {
+	height: 100%;
+}
